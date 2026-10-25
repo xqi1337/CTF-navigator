@@ -20,10 +20,8 @@ mkdir -p "$SAVE_DIR"
 TARGET="${1:-UNSET}"
 SAVE_FILE="$SAVE_DIR/$(echo "$TARGET" | tr '.' '_').state"
 
-
 banner() {
-    clear
-   # echo -e "${CYAN}${BOLD}"
+    [[ -t 1 ]] && clear
     cat << 'EOF'
 
                    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⡀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -31,18 +29,20 @@ banner() {
                        ⠀⠀⠀ ⢀⣀⣐⣬⣄⣷⡀⢸⡃⡘⡸⡄⢸⠀⠀⡇⠀⢠⠀⠀⠀
                   ⠀⠀⠀ ⠀⣠⡴⠚⢉⢍⢂⣼⣴⣿⣿⣿⣷⣷⣷⣣⣏⣆⣼⠀⠀⠄⠀⠀⠀
                 ⠀⠀⠀  ⢠⡞⠋⠀⡑⣮⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣷⣼⣆⣌⡠⢁⡤
-                 ⠀⠀ ⣰⠋⠀⣀⣺⣾⣿⣿⣿⣿⣿⡿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟    	  
-                  ⠀⡼⠁⢀⣿⣿⣿⡿⣿⡛⣿⣿⣿⡷⢸⣿⠀⠀⠀⠀⣹⣿⣿⣿⣟⠣  	  
-                  ⡰⠁⢀⣼⣿⠟⢿⡇⠹⣿⣿⣿⠟⠀⢠⡿⠀⠀⣠⣾⡿⣿⡥⠊⠁  	 
-                ⠁ ⢠⣾⠟⠁⠀⠈⠳⢿⣦⣠⣤⣦⣼⠟⠁⣠⣾⣿⣿⣟⠍⠒⠀⠠       	   
-                 ⢠⡟⠁⢀⣀⣀⣀⣀⡀⠈⣉⣉⣡⣤⣶⣿⡿⡿⡿⡻⠥⠑⡀      	 
+                 ⠀⠀ ⣰⠋⠀⣀⣺⣾⣿⣿⣿⣿⣿⡿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟
+                  ⠀⡼⠁⢀⣿⣿⣿⡿⣿⡛⣿⣿⣿⡷⢸⣿⠀⠀⠀⠀⣹⣿⣿⣿⣟⠣
+                  ⡰⠁⢀⣼⣿⠟⢿⡇⠹⣿⣿⣿⠟⠀⢠⡿⠀⠀⣠⣾⡿⣿⡥⠊⠁
+                ⠁ ⢠⣾⠟⠁⠀⠈⠳⢿⣦⣠⣤⣦⣼⠟⠁⣠⣾⣿⣿⣟⠍⠒⠀⠠
+                 ⢠⡟⠁⢀⣀⣀⣀⣀⡀⠈⣉⣉⣡⣤⣶⣿⡿⡿⡿⡻⠥⠑⡀
                  ⠏⡠⠚⠉⠋⢍⠋⢫⠋⠛⢹⢻⡟⠻⣟⢏⠌⢊⡌⠌⠄⠀⠀⠀⠀⠀
               ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠘⠂⠘⠂⠿⠈⠀⠀⠀⠘⠀⠀⠀⠀⠀
-      
- Recon · Enumeration · Exploit · Compromise · Harvest
- ─────────────────────────────────────────────────────────
-         XQI Navigater  — "TRYHARDER HACKSMARTER" 
 EOF
+
+    echo ""
+    echo -e " ${CYAN}   Recon · Enumeration · Exploit · Compromise · Harvest${NC}"
+    echo -e " ${BLUE}───────────────────────────────────────────────────────────${NC}"
+    echo -e " ${BOLD}                        XQI Navigater  ${NC}"
+    echo ""
 
     echo -e "${NC}"
     echo -e " ${BLUE}┌──────────────────────────────────────────────────────────┐${NC}"
@@ -525,8 +525,6 @@ load_state
 show_menu() {
     banner
     echo -e "  ${BLUE}${BOLD}┌─ MENU ──────────────────────────────────────────────────┐${NC}"
-    echo -e "  ${BOLD}Select a section to review/check off:${NC}"
-    echo ""
     echo -e "  ${CYAN}1${NC})  R — Recon"
     echo -e "  ${CYAN}2${NC})  A — Attack Surface"
     echo -e "  ${CYAN}3${NC})  N — Navigate (Pivot/Lateral)"

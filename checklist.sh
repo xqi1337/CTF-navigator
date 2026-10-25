@@ -40,10 +40,9 @@ banner() {
 EOF
 
     echo ""
-    echo -e " ${CYAN}   Recon · Enumeration · Exploit · Compromise · Harvest${NC}"
-    echo -e " ${BLUE}───────────────────────────────────────────────────────────${NC}"
-    echo ""
-
+    echo -e " ${CYAN}     Recon · Enumeration · Exploit · Compromise · Harvest${NC}"
+    echo -e " ${BLUE} ────────────────────────────────────────────────────────── ${NC}"
+    echo -e " ${BOLD} 		      \"TRYSMARTER NOT HARDER\"${NC}"
     echo -e "${NC}"
     echo -e " ${BLUE}┌──────────────────────────────────────────────────────────┐${NC}"
     echo -e " ${BLUE}│${NC} ${BLUE}Target:${NC} ${BOLD}$TARGET${NC}"
